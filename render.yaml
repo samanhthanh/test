@@ -1,7 +1,7 @@
 services:
   - type: web
     name: springboot-app
-    runtime: java17
+    env: java
     buildCommand: mvn clean install
     startCommand: java -jar target/Test-0.0.1-SNAPSHOT.jar
     plan: free
