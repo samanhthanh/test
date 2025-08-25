@@ -1,27 +1,21 @@
 package com.example.test.controller;
 
 import com.example.test.dto.response.ProductDTO;
-import com.example.test.dto.response.ProductResponse;
-import com.example.test.exceptions.APIException;
-import com.example.test.security.services.UserDetailsImpl;
 import com.example.test.services.ProductViewService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api")
 public class ProductViewController {
 
-    @Autowired
-    ProductViewService productViewService;
+    private ProductViewService productViewService;
 
     @GetMapping("/public/products")
     public ResponseEntity<?> getAllProducts(
